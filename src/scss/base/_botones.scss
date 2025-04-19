@@ -1,0 +1,11 @@
+.boton-cafeOscuro-block {
+    @include boton($cafeOscuro, block);
+    
+}
+.boton-cafeClaro{
+    @include boton($cafeClaro, inline-block);
+}
+
+.boton-cafeOscuro{
+    @include boton($cafeOscuro, inline-block);
+}

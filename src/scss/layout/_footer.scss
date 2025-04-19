@@ -1,0 +1,23 @@
+@use "sass:math";
+
+
+.footer{
+    padding: math.div($separacion, 2);
+    background-color: $grisOscuro;
+    margin-bottom: 0;
+
+    .contenedo-footer{
+        margin-top: math.div($separacion, 2);
+
+    }
+    .navegacion{
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
+
+    .copyringht{
+        color: $blanco;
+        text-align: center;
+    }
+}
