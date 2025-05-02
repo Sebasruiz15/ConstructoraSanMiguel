@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
     <header class="header inicio">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="build/img/lgsan.png" alt="Logo San Miguel">
                 </a>
                 <div class="mobile-menu">
@@ -25,9 +25,9 @@
                 
                      <nav class="navegacion">
 
-                    <a href="nosotros.html">Nosotros</a>
-                    <a href="Proyectos.html">Proyectos</a>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="nosotros.php">Nosotros</a>
+                    <a href="Proyectos.php">Proyectos</a>
+                    <a href="contacto.php">Contacto</a>
 
                 </nav>
                 </div>
@@ -113,7 +113,7 @@
                         </li>
 
                     </ul>
-                    <a href="proyectos.html" class="boton-cafeOscuro-block">
+                    <a href="proyectos.php" class="boton-cafeOscuro-block">
                         Ver Propiedad
                     </a>
                 </div> <!--.Contenido anuncio-->
@@ -154,7 +154,7 @@
                         </li>
 
                     </ul>
-                    <a href="proyectos.html" class="boton-cafeOscuro-block">
+                    <a href="proyectos.php" class="boton-cafeOscuro-block">
                         Ver Propiedad
                     </a>
                 </div> <!--.Contenido anuncio-->
@@ -193,21 +193,21 @@
                         </li>
 
                     </ul>
-                    <a href="proyectos.html" class="boton-cafeOscuro-block">
+                    <a href="proyectos.php" class="boton-cafeOscuro-block">
                         Ver Propiedad
                     </a>
                 </div> <!--.Contenido anuncio-->
             </div> <!-- anuncio-->
 
             <div class="alinear-derecha">
-                <a href="proyectos.html" class="boton-cafeClaro">Ver Todas</a>
+                <a href="proyectos.php" class="boton-cafeClaro">Ver Todas</a>
             </div>
     </section>
 
     <section class="imagen-contacto">
         <h2>Encuentra el apartamentos de tus sueños</h2>
 
-        <a href="contacto.html" class="boton-cafeOscuro">Contactanos</a>
+        <a href="contacto.php" class="boton-cafeOscuro">Contactanos</a>
     </section>
 
     <div class="contenedor seccion seccion-inferior">
@@ -224,7 +224,7 @@
                 </div>
 
                 <div class="texto-entrada">
-                    <a href="entrada.html"></a>
+                    <a href="entrada.php"></a>
                     <h4>San Miguel Camprestre Lote 60 </h4>
                     <p class="informacion-meta">Escrito el: <span>20/10/2025</span>por: <span>San Miguel</span></p>
 
@@ -251,7 +251,7 @@
                 </div>
 
                 <div class="texto-entrada">
-                    <a href="entrada.html"></a>
+                    <a href="entrada.php"></a>
                     <h4>San Miguel Camprestre Lote 60 </h4>
                     <p class="informacion-meta">Escrito el: <span>20/10/2025</span>por: <span>San Miguel</span></p>
 
@@ -278,9 +278,9 @@
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">
             <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="Proyectos.html">Proyectos</a>
-            <a href="contacto.html">Contacto</a>
+                <a href="nosotros.php">Nosotros</a>
+                <a href="Proyectos.php">Proyectos</a>
+            <a href="contacto.php">Contacto</a>
 
             </nav>
         </div>
@@ -289,4 +289,4 @@
     <script src="build/js/bundle.min.js"></script>
 </body>
 
-</html>
+</php>
