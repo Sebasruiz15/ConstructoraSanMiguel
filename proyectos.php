@@ -242,20 +242,9 @@
         </section>
         </div> <!--Contenedor anuncio-->
     </main>
+<?php 
 
-    <footer class="footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.php">Nosotros</a>
-                <a href="Proyectos.php">Proyectos</a>
-
-                <a href="contacto.php">Contacto</a>
-
-            </nav>
-        </div>
-        <p class="copyringht">Todos los derechos Reservados 2025 &copy;</p>
-    </footer>
-    <script src="build/js/bundle.min.js"></script>
-</body>
+include('includes/templates/footer.php'); 
+?>
 
 </php>

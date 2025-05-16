@@ -1,42 +1,12 @@
-<!DOCTYPE php>
-<php lang="en">
+<?php 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Miguel</title>
-    <link rel="stylesheet" href="build/css/app.css">
-    <link rel="icon" href="build/img/lgsan.ico">
-</head>
+$inicio = true;
+include('includes/templates/header.php'); 
+?>
 
-<body>
-    <header class="header inicio">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="index.php">
-                    <img src="build/img/lgsan.png" alt="Logo San Miguel">
-                </a>
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="icono menu responsive">
 
-                </div>
 
-                <div class="derecha">
-                
-                     <nav class="navegacion">
 
-                    <a href="nosotros.php">Nosotros</a>
-                    <a href="Proyectos.php">Proyectos</a>
-                    <a href="contacto.php">Contacto</a>
-
-                </nav>
-                </div>
-
-               
-            </div><!--.barra-->
-            <h1>Inmobiliaria & Constructora San Miguel</h1>
-        </div>
-    </header>
     <main class="contenedor seccion">
 
         
@@ -275,18 +245,9 @@
         </section>
     </div>
 
-    <footer class="footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.php">Nosotros</a>
-                <a href="Proyectos.php">Proyectos</a>
-            <a href="contacto.php">Contacto</a>
+    <?php 
 
-            </nav>
-        </div>
-        <p class="copyringht">Todos los derechos Reservados 2025 &copy;</p>
-    </footer>
-    <script src="build/js/bundle.min.js"></script>
-</body>
+include('includes/templates/footer.php'); 
+?>
 
 </php>
