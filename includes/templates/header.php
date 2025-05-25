@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>San Miguel</title>
-    <link rel="stylesheet" href="build/css/app.css">
-    <link rel="icon" href="build/img/lgsan.ico">
+    <link rel="stylesheet" href="/build/css/app.css">
+    <link rel="icon" href="/build/img/lgsan.ico">
 </head>
 
 <body>
-    <header class="header <?php echo isset ($inicio) ? 'inicio' : '' ?>">
+    <header class="header <?php echo  $inicio ? 'inicio' : '' ?>">
         <div class="contenedor contenido-header">
             <div class="barra">
                     <a href="index.php">
-                        <img src="build/img/logosanmiguel.svg" alt="Logo San Miguel">
+                        <img src="/build/img/logosanmiguel.svg" alt="Logo San Miguel">
                     </a>
                 </a>
                 <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="icono menu responsive">
+                    <img src="/build/img/barras.svg" alt="icono menu responsive">
 
                 </div>
 
