@@ -33,6 +33,10 @@
                 </nav>
                 </div>
             </div><!--.barra-->
-                
+                <?php
+                    if($inicio){
+                        echo "<h1>Inmobiliaria y Constructora San Miguel</h1>";
+                    }
+                ?>
         </div>
     </header>

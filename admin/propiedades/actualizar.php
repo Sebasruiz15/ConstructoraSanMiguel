@@ -1,21 +1,39 @@
 <?php
 
+$id = $_GET['id'];
+$id = filter_var($id, FILTER_VALIDATE_INT);
+
+if(!$id) {
+    header('location:/admin');
+}
+
+
+
 require '../../includes/config/database.php';
 $db = conectarDb();
 
-// consultar pa obtener los vendedores 
+
+// Obtener los datos de la propiedad
+$consulta = "SELECT * FROM  propiedades WHERE id = {$id}";
+$resultado = mysqli_query($db,$consulta);
+$propiedad = mysqli_fetch_assoc($resultado);
+
+
+
+// consultar para obtener los vendedores 
 $consulta =  "SELECT * FROM vendedores";
 $resultado = mysqli_query($db, $consulta);
 
 // Arreglo con mensaje de errores
 $errores = [];
 
-    $titulo = '';
-    $descripcion = '';
-    $habitaciones = '';
-    $wc = '';
-    $estacionamiento = '';
-    $vendedor_id ='';
+    $titulo = $propiedad['titulo'];
+    $descripcion = $propiedad['descripcion'];
+    $habitaciones = $propiedad['habitaciones'];
+    $wc = $propiedad['wc'];
+    $estacionamiento = $propiedad['estacionamiento'];
+    $vendedor_id =$propiedad['vendedor_id'];
+    $imagenPropiedad = $propiedad['imagen'];
 
 // Ejecuta el codigo despues de que el usuario envia el formulario 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -67,15 +85,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = "Elige un vendedor ";
     }
 
-    if(!$imagen["name"]) {
-        $errores[] = "La imagen es obligatoria";
-    }
-
+    
     // Validar por el tamaño (100 Kb máximo)
 
     $medida = 1000 * 1000;
-
-    if($imagen['size'] < $medida ){
+    if($imagen['size'] > $medida ){
         $errores[] = "La imagen es muy pesada";
     }
 
@@ -86,43 +100,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Revisar el arreglo de errores
 
-    if (empty($errores)) {
-
-        /**SUBIDA DE ARCHIVOS  */
-
+    if (empty($errores)) { 
+        
         // Crear carpeta 
         $carpetaImagenes = '../../imagenes';
 
         if(!is_dir($carpetaImagenes)){
             mkdir($carpetaImagenes);
         }
+
+        $nombreImagen = '';
         
 
-        // Generar un nombre unico 
-        $nombreImagen = md5(uniqid(rand(), true )). ".jpg";
+        /**SUBIDA DE ARCHIVOS  */
 
-        // Subir la imagen 
+        if($imagen['name']){
+            // Eliminar la imagen 
 
-        move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . "/" . $nombreImagen);
+            unlink($carpetaImagenes . $propiedad['imagen'] );
+            // Generar un nombre unico 
+             $nombreImagen = md5(uniqid(rand(), true )). ".jpg";
 
+             // Subir la imagen 
 
-       
+             move_uploaded_file($imagen['tmp_name'], $carpetaImagenes .  $nombreImagen);
 
+        }else {
+            $nombreImagen = $propiedad['imagen'];
+        }
 
+             // Insertar en la base de datos
+        $query = " UPDATE propiedades SET titulo = '{$titulo}', imagen = '{$nombreImagen}', descripcion = '{$descripcion}',habitaciones = {$habitaciones}, wc = {$wc}, estacionamiento = {$estacionamiento}, vendedor_id = {$vendedor_id} WHERE id = {$id}";
 
-        // Insertar en la base de datos
-        $query = " INSERT INTO propiedades (titulo,imagen,  descripcion, habitaciones, wc, estacionamiento, creacion, vendedor_id)
-     VALUES ( 
-        '$titulo','$nombreImagen', '$descripcion', '$habitaciones', '$wc', '$estacionamiento','$creacion', '$vendedor_id' ) ";
-
-        // echo $query;
+        //  echo $query;
+        //  exit;
 
         $resultado = mysqli_query($db, $query);
 
         if ($resultado) {
             // Redireccionar al usuario 
 
-            header("location: /admin?Resultado=1");
+            header("location: /admin?resultado=2");
         }
     }
 
@@ -135,7 +153,7 @@ incluirTemplate('header');
 ?>
 
 <main class="contenedor seccion">
-    <h1>Crear Proyecto</h1>
+    <h1>Actualizar Proyecto</h1>
 
     <a href="/admin" class="boton boton-cafeClaro">Volver</a>
 
@@ -145,7 +163,7 @@ incluirTemplate('header');
         </div>
     <?php endforeach; ?>
 
-    <form action="/admin/propiedades/crear.php" enctype="multipart/form-data" class="formulario" method="POST">
+    <form enctype="multipart/form-data" class="formulario" method="POST">
 
         <fieldset>
             <legend>Información General</legend>
@@ -155,6 +173,8 @@ incluirTemplate('header');
 
             <label for="imegen">Imagen:</label>
             <input type="file" id="imagen" name="imagen"accept="image/jpeg, image/png">
+
+            <img src="/imagenes/<?php echo $imagenPropiedad; ?>" class="imagen-small">
 
             <label for="descripcion">Descripción: </label>
             <textarea name="descripcion" id="descripcion"> <?php echo $descripcion; ?> </textarea>
@@ -188,7 +208,7 @@ incluirTemplate('header');
             </select>
 
         </fieldset>
-        <input type="submit" value="Crear" class="boton boton-cafeClaro">
+        <input type="submit" value="Actualizar" class="boton boton-cafeClaro">
     </form>
 
 
