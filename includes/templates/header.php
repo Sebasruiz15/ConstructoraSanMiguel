@@ -10,7 +10,9 @@
 </head>
 
 <body>
-    <header class="header <?php echo  $inicio ? 'inicio' : '' ?>">
+    <header class="header <?php echo isset($inicio) && $inicio ? 'inicio' : '' ?>">
+
+
         <div class="contenedor contenido-header">
             <div class="barra">
                     <a href="index.php">
@@ -34,9 +36,11 @@
                 </div>
             </div><!--.barra-->
                 <?php
-                    if($inicio){
-                        echo "<h1>Inmobiliaria y Constructora San Miguel</h1>";
-                    }
+                     if(isset($inicio) && $inicio){
+                            echo "<h1>Inmobiliaria y Constructora San Miguel</h1>";
+                         }
                 ?>
+
         </div>
-    </header>
+    </header>    
+</body> 

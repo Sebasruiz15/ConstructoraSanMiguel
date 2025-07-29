@@ -2,7 +2,7 @@
 
 
 
-    <main class="contenedor seccion">
+    <main class="contenedor seccion ">
         <h1>Contactanos</h1>
 <picture>
     <source srcset="build/img/NI6.webp" type="image/webp">
