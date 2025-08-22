@@ -16,7 +16,7 @@ $consulta =  "SELECT * FROM vendedores";
 $resultado = mysqli_query($db, $consulta);
 
 // Arreglo con mensaje de errores
-$errores = [];
+$errores = Propiedad::getErrores();
 
     $titulo = '';
     $descripcion = '';
@@ -32,23 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $propiedad->guardar();
 
-    // echo "<pre>";
-    // var_dump($_POST);
-    // echo "</pre>";
 
-    echo "<pre>";
-    var_dump($_FILES);
-    echo "</pre>";
-
-    exit;
-
-    $titulo = mysqli_real_escape_string($db,  $_POST['titulo']);
-    $descripcion = mysqli_real_escape_string($db,  $_POST['descripcion']);
-    $habitaciones = mysqli_real_escape_string($db,  $_POST['habitaciones']);
-    $wc = mysqli_real_escape_string($db,  $_POST['wc']);
-    $estacionamiento = mysqli_real_escape_string($db,  $_POST['estacionamiento']);
-    $vendedor_id = mysqli_real_escape_string($db,  $_POST['vendedor_id']);
-    $creacion = date('Y/m/d');
     
     // Asignar files hacia una variable
     $imagen = $_FILES['imagen'];
