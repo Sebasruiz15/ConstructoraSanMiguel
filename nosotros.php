@@ -1,4 +1,7 @@
-<?php include('includes/app.php'); ?>
+<?php 
+require 'includes/app.php';
+incluirTemplate('header');
+ ?>
 
     <main class="contenedor seccion">
         <h1>Conoce Sobre Nosotros</h1>

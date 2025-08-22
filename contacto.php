@@ -1,4 +1,7 @@
-<?php include('includes/templates/header.php'); ?>
+<?php include('includes/app.php');
+incluirTemplate('header');
+
+?>
 
 
 

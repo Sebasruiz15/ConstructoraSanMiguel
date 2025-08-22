@@ -8,6 +8,7 @@ $db = conectarDb();
 $query = "SELECT * FROM propiedades LIMIT {$limite}";
 
 
+
 // Obtener resultado
 $resultado = mysqli_query($db, $query);
 

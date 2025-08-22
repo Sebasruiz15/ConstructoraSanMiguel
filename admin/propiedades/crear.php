@@ -1,16 +1,14 @@
 <?php
 
-    require '../../includes/funciones.php';
-    $auth = estaAutenticado();
+    require '../../includes/app.php';
+    use App\Propiedad;
+    
 
+    
 
-
-    if(!$auth) {
-            header('location: /');
-    }
+    estaAutenticado();
 
 // Base de datos
-require '../../includes/config/database.php';
 $db = conectarDb();
 
 // consultar pa obtener los vendedores 
@@ -34,11 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // var_dump($_POST);
     // echo "</pre>";
 
-    // echo "<pre>";
-    // var_dump($_FILES);
-    // echo "</pre>";
+    echo "<pre>";
+    var_dump($_FILES);
+    echo "</pre>";
 
-    // exit;
+    exit;
 
     $titulo = mysqli_real_escape_string($db,  $_POST['titulo']);
     $descripcion = mysqli_real_escape_string($db,  $_POST['descripcion']);
