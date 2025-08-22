@@ -28,6 +28,10 @@ $errores = [];
 // Ejecuta el codigo despues de que el usuario envia el formulario 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    $propiedad = new Propiedad($_POST);
+
+    $propiedad->guardar();
+
     // echo "<pre>";
     // var_dump($_POST);
     // echo "</pre>";
@@ -118,10 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-        // Insertar en la base de datos
-        $query = " INSERT INTO propiedades (titulo,imagen,  descripcion, habitaciones, wc, estacionamiento, creacion, vendedor_id)
-     VALUES ( 
-        '$titulo','$nombreImagen', '$descripcion', '$habitaciones', '$wc', '$estacionamiento','$creacion', '$vendedor_id' ) ";
+        
 
         // echo $query;
 
